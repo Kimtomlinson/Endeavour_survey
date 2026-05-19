@@ -57,7 +57,7 @@ export default function HomePage() {
         className="relative min-h-screen flex items-center justify-center text-center px-6 pt-16"
         style={{
           background:
-            'linear-gradient(160deg, #151f28 0%, #1e2e40 50%, #151f28 100%)',
+            'linear-gradient(160deg, #000000 0%, #1a1a1a 50%, #000000 100%)',
         }}
       >
         {/* Subtle gold grid overlay */}
@@ -190,7 +190,7 @@ export default function HomePage() {
       <section
         className="py-28 px-6 text-center"
         style={{
-          background: 'linear-gradient(160deg, #151f28 0%, #1e2e40 100%)',
+          background: 'linear-gradient(160deg, #000000 0%, #1a1a1a 100%)',
         }}
       >
         <div className="max-w-2xl mx-auto">

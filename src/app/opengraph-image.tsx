@@ -12,7 +12,7 @@ export default function OGImage() {
         style={{
           width: '1200px',
           height: '630px',
-          background: 'linear-gradient(160deg, #151f28 0%, #1e2e40 60%, #151f28 100%)',
+          background: 'linear-gradient(160deg, #000000 0%, #1a1a1a 60%, #000000 100%)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -103,7 +103,7 @@ export default function OGImage() {
         <div
           style={{
             background: '#bc9c22',
-            color: '#151f28',
+            color: '#000000',
             fontFamily: 'sans-serif',
             fontWeight: 700,
             fontSize: '14px',

@@ -135,7 +135,7 @@ export default function ResourcesPage() {
         {/* Bottom CTA */}
         <div
           className="p-10 text-center"
-          style={{ background: 'linear-gradient(160deg, #151f28 0%, #1e2e40 100%)' }}
+          style={{ background: 'linear-gradient(160deg, #000000 0%, #1a1a1a 100%)' }}
         >
           <h2 className="font-playfair text-3xl text-cream mb-4">
             Want to go deeper?

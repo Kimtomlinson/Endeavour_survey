@@ -12,7 +12,7 @@ const config: Config = {
         gold: '#bc9c22',
         'gold-light': '#cdb452',
         cream: '#fffff6',
-        navy: '#151f28',
+        navy: '#000000',
         slate: '#66706f',
       },
       fontFamily: {

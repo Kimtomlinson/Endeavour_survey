@@ -17,8 +17,8 @@ function formatEmailHtml(data: SurveyPayload): string {
     : '<li>None selected</li>'
 
   return `
-    <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #151f28;">
-      <div style="background: #151f28; padding: 32px; text-align: center;">
+    <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #000000;">
+      <div style="background: #000000; padding: 32px; text-align: center;">
         <h1 style="color: #bc9c22; font-size: 22px; margin: 0; letter-spacing: 2px;">
           ENDEAVOUR
         </h1>
@@ -28,7 +28,7 @@ function formatEmailHtml(data: SurveyPayload): string {
       </div>
 
       <div style="padding: 40px 32px; background: #fffff6; border: 1px solid rgba(188,156,34,0.2);">
-        <h2 style="font-size: 24px; color: #151f28; margin-top: 0;">
+        <h2 style="font-size: 24px; color: #000000; margin-top: 0;">
           ${data.name} wants to book a coffee call
         </h2>
 
@@ -57,18 +57,18 @@ function formatEmailHtml(data: SurveyPayload): string {
 
         <div style="background: white; border: 1px solid rgba(188,156,34,0.2); padding: 20px; margin-bottom: 20px;">
           <p style="font-family: sans-serif; font-size: 11px; color: #66706f; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px;">Topics Requested</p>
-          <ul style="font-family: sans-serif; font-size: 14px; color: #151f28; margin: 0; padding-left: 20px; line-height: 1.8;">
+          <ul style="font-family: sans-serif; font-size: 14px; color: #000000; margin: 0; padding-left: 20px; line-height: 1.8;">
             ${topicList}
           </ul>
         </div>
 
         <div style="background: white; border: 1px solid rgba(188,156,34,0.2); padding: 20px;">
           <p style="font-family: sans-serif; font-size: 11px; color: #66706f; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px;">Their Biggest Challenge</p>
-          <p style="font-family: sans-serif; font-size: 14px; color: #151f28; margin: 0; line-height: 1.7;">${data.challenge || '(not provided)'}</p>
+          <p style="font-family: sans-serif; font-size: 14px; color: #000000; margin: 0; line-height: 1.7;">${data.challenge || '(not provided)'}</p>
         </div>
       </div>
 
-      <div style="background: #151f28; padding: 20px 32px; text-align: center;">
+      <div style="background: #000000; padding: 20px 32px; text-align: center;">
         <p style="font-family: sans-serif; font-size: 11px; color: rgba(255,255,246,0.4); margin: 0;">
           Endeavour Real Estate Coaching
         </p>
