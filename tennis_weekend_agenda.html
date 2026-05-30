@@ -270,10 +270,12 @@
     .closing .emoji-row { font-size: 2rem; margin-top: .75rem; letter-spacing: .3rem; }
 
     /* ─── PAGE BREAKS ───────────────────────────────────────── */
-    @media print {
-      .page-break { page-break-before: always; break-before: page; }
+    .day-section { }
+    .day-section + .day-section {
+      page-break-before: always;
+      break-before: page;
+      padding-top: 1.5rem;
     }
-    .page-break { page-break-before: always; break-before: page; }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
@@ -298,6 +300,7 @@
 <main>
 
   <!-- ════════════ FRIDAY ════════════ -->
+  <div class="day-section">
   <div class="day-header">
     <div class="day-label">Friday · June 5</div>
     <div class="day-divider"></div>
@@ -341,8 +344,11 @@
     </div>
   </div>
 
+  </div><!-- end friday -->
+
   <!-- ════════════ SATURDAY ════════════ -->
-  <div class="day-header page-break">
+  <div class="day-section">
+  <div class="day-header">
     <div class="day-label">Saturday · June 6</div>
     <div class="day-divider"></div>
   </div>
@@ -388,8 +394,11 @@
     </div>
   </div>
 
+  </div><!-- end saturday -->
+
   <!-- ════════════ SUNDAY ════════════ -->
-  <div class="day-header page-break">
+  <div class="day-section">
+  <div class="day-header">
     <div class="day-label">Sunday · June 7</div>
     <div class="day-divider"></div>
   </div>
@@ -426,6 +435,8 @@
       <div class="address">📍 Denver Tennis Park &nbsp;·&nbsp; 1560 S Franklin St, Denver 80218</div>
     </div>
   </div>
+
+  </div><!-- end sunday -->
 
   <!-- ════════════ TO-DO ════════════ -->
   <div class="todo-card">
