@@ -269,6 +269,12 @@
     }
     .closing .emoji-row { font-size: 2rem; margin-top: .75rem; letter-spacing: .3rem; }
 
+    /* ─── PAGE BREAKS ───────────────────────────────────────── */
+    @media print {
+      .page-break { page-break-before: always; break-before: page; }
+    }
+    .page-break { page-break-before: always; break-before: page; }
+
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
       text-align: center;
@@ -336,7 +342,7 @@
   </div>
 
   <!-- ════════════ SATURDAY ════════════ -->
-  <div class="day-header">
+  <div class="day-header page-break">
     <div class="day-label">Saturday · June 6</div>
     <div class="day-divider"></div>
   </div>
@@ -383,7 +389,7 @@
   </div>
 
   <!-- ════════════ SUNDAY ════════════ -->
-  <div class="day-header">
+  <div class="day-header page-break">
     <div class="day-label">Sunday · June 7</div>
     <div class="day-divider"></div>
   </div>
