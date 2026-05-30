@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>55 & Thriving Gals Tennis Weekend</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --green:   #2d6a4f;
+      --green-lt: #52b788;
+      --yellow:  #f4d03f;
+      --cream:   #fdfaf4;
+      --slate:   #2c3e50;
+      --gray:    #6c757d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--slate);
+      min-height: 100vh;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, var(--green) 0%, #1b4332 60%, #081c15 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(82,183,136,.25) 0%, transparent 60%);
+    }
+    .tennis-balls {
+      font-size: 2rem;
+      letter-spacing: .4rem;
+      margin-bottom: .75rem;
+      opacity: .9;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(0,0,0,.4);
+      position: relative;
+    }
+    header h1 span {
+      color: var(--yellow);
+    }
+    header .subtitle {
+      margin-top: .6rem;
+      font-size: 1.05rem;
+      opacity: .85;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .date-badge {
+      display: inline-block;
+      margin-top: 1.25rem;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      padding: .4rem 1.4rem;
+      font-size: .9rem;
+      letter-spacing: .05em;
+      backdrop-filter: blur(4px);
+      position: relative;
+    }
+
+    /* ─── LAYOUT ────────────────────────────────────────────── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* ─── DAY HEADER ────────────────────────────────────────── */
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0 1.25rem;
+    }
+    .day-label {
+      background: var(--green);
+      color: #fff;
+      border-radius: 12px;
+      padding: .55rem 1.2rem;
+      font-weight: 600;
+      font-size: .95rem;
+      white-space: nowrap;
+      letter-spacing: .03em;
+    }
+    .day-divider {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--green-lt), transparent);
+      border-radius: 1px;
+    }
+
+    /* ─── EVENT CARD ────────────────────────────────────────── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid var(--green-lt);
+      transition: box-shadow .2s;
+    }
+    .card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.12); }
+    .card.match  { border-left-color: var(--green); }
+    .card.home   { border-left-color: #e67e22; }
+    .card.food   { border-left-color: #c0392b; }
+    .card.fun    { border-left-color: #8e44ad; }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: .9rem;
+      flex-wrap: wrap;
+    }
+    .time-chip {
+      background: var(--green);
+      color: #fff;
+      border-radius: 8px;
+      padding: .3rem .85rem;
+      font-size: .82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .card.food .time-chip  { background: #c0392b; }
+    .card.home .time-chip  { background: #e67e22; }
+    .card.fun  .time-chip  { background: #8e44ad; }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--slate);
+    }
+    .card-icon {
+      font-size: 1.3rem;
+      margin-right: .3rem;
+    }
+
+    .card-body {
+      margin-top: .8rem;
+      font-size: .9rem;
+      color: #444;
+      line-height: 1.65;
+    }
+    .address {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: .4rem;
+      background: #f1f8f4;
+      border-radius: 8px;
+      padding: .5rem .75rem;
+      margin-top: .5rem;
+      font-size: .85rem;
+      color: var(--green);
+      font-weight: 500;
+    }
+    .note {
+      font-style: italic;
+      color: var(--gray);
+      font-size: .85rem;
+      margin-top: .4rem;
+    }
+
+    /* ─── OPTIONS LIST ──────────────────────────────────────── */
+    .options-label {
+      font-weight: 600;
+      color: var(--green);
+      margin-top: .8rem;
+      margin-bottom: .4rem;
+      font-size: .88rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: .5rem;
+      margin-top: .4rem;
+    }
+    .option-pill {
+      background: #f8f3ff;
+      border: 1px solid #d6c8f0;
+      border-radius: 10px;
+      padding: .5rem .85rem;
+      font-size: .85rem;
+      color: #5b3b8c;
+      display: flex;
+      align-items: flex-start;
+      gap: .45rem;
+    }
+    .option-pill .pill-icon { flex-shrink: 0; }
+
+    /* ─── TO-DO ─────────────────────────────────────────────── */
+    .todo-card {
+      background: linear-gradient(135deg, #fff8e1, #fff3cd);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      margin-top: 2.5rem;
+      border: 1px solid #ffe082;
+    }
+    .todo-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #7d5a00;
+      margin-bottom: 1rem;
+    }
+    .todo-item {
+      display: flex;
+      align-items: baseline;
+      gap: .6rem;
+      padding: .55rem 0;
+      border-bottom: 1px dashed #ffd54f;
+      font-size: .92rem;
+      color: #5d4037;
+    }
+    .todo-item:last-child { border-bottom: none; }
+    .todo-icon { font-size: 1rem; flex-shrink: 0; }
+    .todo-slots {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-left: .3rem;
+    }
+    .slot {
+      display: inline-block;
+      width: 90px;
+      border-bottom: 1.5px solid #a0522d;
+      color: #a0522d;
+      font-style: italic;
+      font-size: .82rem;
+      text-align: center;
+      padding-bottom: 1px;
+    }
+
+    /* ─── CLOSING ────────────────────────────────────────────── */
+    .closing {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 1.75rem 1.5rem;
+      background: linear-gradient(135deg, var(--green) 0%, #1b4332 100%);
+      border-radius: 20px;
+      color: #fff;
+    }
+    .closing p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.6;
+    }
+    .closing .emoji-row { font-size: 2rem; margin-top: .75rem; letter-spacing: .3rem; }
+
+    /* ─── PAGE BREAKS ───────────────────────────────────────── */
+    .day-section { }
+    .day-section + .day-section {
+      page-break-before: always;
+      break-before: page;
+      padding-top: 1.5rem;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .8rem;
+      color: var(--gray);
+      letter-spacing: .04em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════ HERO ════════════ -->
+<header>
+  <div class="tennis-balls">🎾 🎾 🎾</div>
+  <h1>55 &amp; <span>Thriving</span> Gals<br>Tennis Weekend</h1>
+  <div class="subtitle">Denver Metro Area</div>
+  <div class="date-badge">June 5 – 7, 2025 &nbsp;|&nbsp; 55+ Competition</div>
+</header>
+
+<main>
+
+  <!-- ════════════ FRIDAY ════════════ -->
+  <div class="day-section">
+  <div class="day-header">
+    <div class="day-label">Friday · June 5</div>
+    <div class="day-divider"></div>
+  </div>
+
+  <!-- Match 1 -->
+  <div class="card match">
+    <div class="card-top">
+      <div class="time-chip">12:30 PM</div>
+      <div class="card-title"><span class="card-icon">🎾</span>Match vs LTFCS — Life-Time Fitness Colorado Springs</div>
+    </div>
+    <div class="card-body">
+      <div class="address">📍 Ken-Caryl Ranch &nbsp;·&nbsp; 7676 S. Continental Divide Rd, Littleton 80127</div>
+      <div class="note">🏸 Warm-up courts (TBD): Robert A. Easton Regional Park — 12819 W Coal Mine Ave, Littleton 80127 (2 public courts)</div>
+    </div>
+  </div>
+
+  <!-- Lunch / HH -->
+  <div class="card food">
+    <div class="card-top">
+      <div class="time-chip">2:00 PM</div>
+      <div class="card-title"><span class="card-icon">🍹</span>Lunch / Happy Hour</div>
+    </div>
+    <div class="card-body">
+      <strong>Penn Street Kitchen</strong><br>
+      <div class="address">📍 500 E. Hampden Ave #100, Englewood, CO</div>
+      <p style="margin-top:.5rem">$5 food &amp; drink happy hour menu — <em>only 0.3 miles from the Airbnb!</em></p>
+    </div>
+  </div>
+
+  <!-- Airbnb Check-in -->
+  <div class="card home">
+    <div class="card-top">
+      <div class="time-chip">~4:00 PM</div>
+      <div class="card-title"><span class="card-icon">🏠</span>Check Into Airbnb</div>
+    </div>
+    <div class="card-body">
+      <strong>Modern 4BR with Hot Tub</strong> — <em>pack your swimsuit!</em><br>
+      <div class="address">📍 3511 South Ogden Street, Englewood, CO 80113</div>
+      <p style="margin-top:.6rem">🛁 Hot tub &nbsp;·&nbsp; 🚿 Showers &nbsp;·&nbsp; 🎲 Games &nbsp;·&nbsp; 🍿 Evening snacks &nbsp;·&nbsp; 😴 Early to bed!</p>
+    </div>
+  </div>
+
+  </div><!-- end friday -->
+
+  <!-- ════════════ SATURDAY ════════════ -->
+  <div class="day-section">
+  <div class="day-header">
+    <div class="day-label">Saturday · June 6</div>
+    <div class="day-divider"></div>
+  </div>
+
+  <!-- Match 2 -->
+  <div class="card match">
+    <div class="card-top">
+      <div class="time-chip">8:00 AM</div>
+      <div class="card-title"><span class="card-icon">🎾</span>Match vs Crown</div>
+    </div>
+    <div class="card-body">
+      <div class="address">📍 Ken-Caryl Ranch House</div>
+    </div>
+  </div>
+
+  <!-- Afternoon Options -->
+  <div class="card fun">
+    <div class="card-top">
+      <div class="time-chip">Afternoon</div>
+      <div class="card-title"><span class="card-icon">✨</span>Afternoon Options — Pick Your Adventure!</div>
+    </div>
+    <div class="card-body">
+      <div class="options-label">Choose Your Fun</div>
+      <div class="options-grid">
+        <div class="option-pill"><span class="pill-icon">🎾</span><span>Cheer Kaili's mixed match &nbsp;·&nbsp; Noon &nbsp;·&nbsp; Colorado Athletic Club @ Monaco</span></div>
+        <div class="option-pill"><span class="pill-icon">🎨</span><span>Denver Museum Shop Market &amp; Chalk Art Festival &nbsp;·&nbsp; 10 AM–4 PM &nbsp;·&nbsp; Free!</span></div>
+        <div class="option-pill"><span class="pill-icon">🎵</span><span>Shadow Hill's Music &amp; Indiewood Street Festival &nbsp;·&nbsp; 1–7 PM &nbsp;·&nbsp; $32 tickets &nbsp;·&nbsp; Downtown Englewood</span></div>
+        <div class="option-pill"><span class="pill-icon">🍺</span><span>Schoolyard Beer Garden &nbsp;·&nbsp; <em>Bucket list spot!</em></span></div>
+        <div class="option-pill"><span class="pill-icon">🏆</span><span>99ers Sports Bar &nbsp;·&nbsp; Women's sports bar &nbsp;·&nbsp; <em>Another bucket list!</em></span></div>
+        <div class="option-pill"><span class="pill-icon">😌</span><span>Chill at the Airbnb — you earned it!</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Saturday Dinner -->
+  <div class="card food">
+    <div class="card-top">
+      <div class="time-chip">Evening</div>
+      <div class="card-title"><span class="card-icon">🍽️</span>Potluck Dinner at Airbnb</div>
+    </div>
+    <div class="card-body">
+      Details TBD — <strong>volunteers needed to organize!</strong> 🙋‍♀️
+    </div>
+  </div>
+
+  </div><!-- end saturday -->
+
+  <!-- ════════════ SUNDAY ════════════ -->
+  <div class="day-section">
+  <div class="day-header">
+    <div class="day-label">Sunday · June 7</div>
+    <div class="day-divider"></div>
+  </div>
+
+  <!-- Match 3 -->
+  <div class="card match">
+    <div class="card-top">
+      <div class="time-chip">8:00 AM</div>
+      <div class="card-title"><span class="card-icon">🎾</span>Match vs LTFCS</div>
+    </div>
+    <div class="card-body">
+      <div class="address">📍 Denver Tennis Park &nbsp;·&nbsp; 1560 S Franklin St, Denver 80218</div>
+    </div>
+  </div>
+
+  <!-- Checkout -->
+  <div class="card home">
+    <div class="card-top">
+      <div class="time-chip">10–11 AM</div>
+      <div class="card-title"><span class="card-icon">🧳</span>Airbnb Check-Out</div>
+    </div>
+    <div class="card-body">
+      Standard checkout 10:00 AM — requesting 11:00 AM, <em>TBD</em>.
+    </div>
+  </div>
+
+  <!-- Match 4 -->
+  <div class="card match">
+    <div class="card-top">
+      <div class="time-chip">12:30 PM</div>
+      <div class="card-title"><span class="card-icon">🎾</span>Match vs Crown</div>
+    </div>
+    <div class="card-body">
+      <div class="address">📍 Denver Tennis Park &nbsp;·&nbsp; 1560 S Franklin St, Denver 80218</div>
+    </div>
+  </div>
+
+  </div><!-- end sunday -->
+
+  <!-- ════════════ TO-DO ════════════ -->
+  <div class="todo-card">
+    <h2>📋 To-Do &amp; Sign-Up List</h2>
+
+    <div class="todo-item">
+      <span class="todo-icon">☕</span>
+      <span><strong>Coffee / Creamer</strong></span>
+      <div class="todo-slots"><span class="slot">_________</span></div>
+    </div>
+
+    <div class="todo-item">
+      <span class="todo-icon">🥞</span>
+      <span><strong>Breakfast organizer &amp; cooks</strong> (need 2)</span>
+      <div class="todo-slots">
+        <span class="slot">_________</span>
+        <span class="slot">_________</span>
+      </div>
+    </div>
+
+    <div class="todo-item">
+      <span class="todo-icon">🍿</span>
+      <span><strong>Evening snacks</strong> (need 2)</span>
+      <div class="todo-slots">
+        <span class="slot">_________</span>
+        <span class="slot">_________</span>
+      </div>
+    </div>
+
+    <div class="todo-item">
+      <span class="todo-icon">🍲</span>
+      <span><strong>Saturday potluck organizer &amp; cooks</strong> (need 3)</span>
+      <div class="todo-slots">
+        <span class="slot">_________</span>
+        <span class="slot">_________</span>
+        <span class="slot">_________</span>
+      </div>
+    </div>
+
+    <div class="todo-item">
+      <span class="todo-icon">👙</span>
+      <span><strong>Pack your swimsuit!</strong> (hot tub awaits)</span>
+    </div>
+
+    <div class="todo-item">
+      <span class="todo-icon">🚗</span>
+      <span><strong>Carpools?</strong> — coordinate with the group</span>
+    </div>
+
+    <div class="todo-item" style="border-bottom:none;">
+      <span class="todo-icon">📝</span>
+      <span><em>Kim heads down Thursday — will meet everyone at the warm-up courts before the Ken-Caryl match.</em></span>
+    </div>
+  </div>
+
+  <!-- ════════════ CLOSING ════════════ -->
+  <div class="closing">
+    <p>Head home · Celebrate · Grateful for the opportunity<br>to play so much tennis with you all and have so much fun!!</p>
+    <div class="emoji-row">🎾 🏆 🥂 💚</div>
+  </div>
+
+</main>
+
+<footer>55 &amp; Thriving Gals &nbsp;·&nbsp; Denver Metro &nbsp;·&nbsp; June 2025</footer>
+
+</body>
+</html>
